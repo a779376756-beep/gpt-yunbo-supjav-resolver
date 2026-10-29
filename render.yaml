@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: gpt-yunbo-supjav-resolver
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: RESOLVER_API_KEY
+        generateValue: true
+      - key: SITE_ORIGIN
+        value: https://quiet-stream-91.a779376756.chatgpt.site
+      - key: PUBLIC_BASE_URL
+        sync: false
+      - key: SUPJAV_BASE_URLS
+        value: https://supjav.com,https://supjav.net,https://supjav.org
+      - key: ENABLE_BROWSER
+        value: "1"
+      - key: SESSION_TTL_SECONDS
+        value: "2700"
+
